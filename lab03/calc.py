@@ -6,4 +6,9 @@ def add(x, y):
     return x + y
 
 
+def sub(x, y):
+    return x - y
+
+
 print(f"Сумма: {add(a, b)}")
+print(f"Разность: {sub(a, b)}")
