@@ -19,13 +19,15 @@ def parse_record(line: str) -> dict:
     try:
         temperature = float(temp_str)
     except ValueError as exc:
+def read_valid(lines: list[str]) -> list[dict]:
+    """Пропускает пустые и негодные строки, не роняя программу."""
+    records = []
         raise ValueError(f"Температура не является числом: {temp_str!r}") from exc
 
     return {"city": city, "temperature": temperature, "date": date}
 
 
-def read_valid(lines: list[str]) -> list[dict]:
-    records = []
+
     for line in lines:
         if not line.strip():
             continue
