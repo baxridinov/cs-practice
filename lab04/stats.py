@@ -2,6 +2,7 @@
 
 
 def parse_record(line: str) -> dict:
+    """Разбирает строку 'город;температура;дата'. Негодная строка → ValueError."""
     parts = line.split(";")
 
     if len(parts) != 3:
