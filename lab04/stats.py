@@ -10,7 +10,7 @@ def parse_record(line: str) -> dict:
 
     city, temp_str, date = parts
     city = city.strip()
-    temp_str = temp_str.strip()
+    temp_str = temp_str.strip().replace(",", ".")
     date = date.strip()
 
     if not city or not date:
