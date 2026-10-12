@@ -19,15 +19,14 @@ def parse_record(line: str) -> dict:
     try:
         temperature = float(temp_str)
     except ValueError as exc:
-def read_valid(lines: list[str]) -> list[dict]:
-    """Пропускает пустые и негодные строки, не роняя программу."""
-    records = []
         raise ValueError(f"Температура не является числом: {temp_str!r}") from exc
 
     return {"city": city, "temperature": temperature, "date": date}
 
 
-
+def read_valid(lines: list[str]) -> list[dict]:
+    """Пропускает пустые и негодные строки, не роняя программу."""
+    records = []
     for line in lines:
         if not line.strip():
             continue
@@ -39,6 +38,7 @@ def read_valid(lines: list[str]) -> list[dict]:
 
 
 def average_by_city(records: list[dict]) -> dict:
+    """Средняя температура по каждому городу, округлённая до десятых."""
     sums = {}
     counts = {}
     for record in records:
@@ -50,6 +50,7 @@ def average_by_city(records: list[dict]) -> dict:
 
 
 def warmest_city(records: list[dict]) -> str:
+    """Город с наибольшей средней температурой. При равенстве — первый по алфавиту."""
     sums = {}
     counts = {}
     for record in records:
