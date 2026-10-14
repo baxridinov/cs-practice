@@ -8,7 +8,6 @@ def main() -> None:
 
     records = read_valid(lines)
 
-        # пропущенные = все строки минус пустые минус корректные
     empty_count = sum(1 for line in lines if not line.strip())
     skipped = len(lines) - empty_count - len(records)
 
