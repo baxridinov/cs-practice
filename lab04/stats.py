@@ -1,12 +1,11 @@
-"""Функции обработки журнала наблюдений."""
+
 
 
 def parse_record(line: str) -> dict:
-    """Разбирает строку 'город;температура;дата'. Негодная строка → ValueError."""
     parts = line.split(";")
 
     if len(parts) != 3:
-        raise ValueError("Запись должна содержать ровно три поля: город;температура;дата")
+        raise ValueError("Запись должна содержать рвно три поля: город;температура;дата")
 
     city, temp_str, date = parts
     city = city.strip()
@@ -14,7 +13,7 @@ def parse_record(line: str) -> dict:
     date = date.strip()
 
     if not city or not date:
-        raise ValueError("Город и дата не должны быть пустыми")
+        raise ValueError("Город и дата не долны быть пустыми")
 
     try:
         temperature = float(temp_str)
@@ -50,7 +49,7 @@ def average_by_city(records: list[dict]) -> dict:
 
 
 def warmest_city(records: list[dict]) -> str:
-    """Город с наибольшей средней температурой. При равенстве — первый по алфавиту."""
+    """Город с наиболшей средней температурй. При равенстве — первый по алфавиту."""
     sums = {}
     counts = {}
     for record in records:
