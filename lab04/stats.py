@@ -24,7 +24,6 @@ def parse_record(line: str) -> dict:
 
 
 def read_valid(lines: list[str]) -> list[dict]:
-    """Пропускает пустые и негодные строки, не роняя программу."""
     records = []
     for line in lines:
         if not line.strip():
@@ -36,8 +35,7 @@ def read_valid(lines: list[str]) -> list[dict]:
     return records
 
 
-def average_by_city(records: list[dict]) -> dict:
-    """Средняя температура по каждому городу, округлённая до десятых."""
+def average_by_city(records: list[dict]) -> dict)
     sums = {}
     counts = {}
     for record in records:
@@ -49,7 +47,7 @@ def average_by_city(records: list[dict]) -> dict:
 
 
 def warmest_city(records: list[dict]) -> str:
-    """Город с наиболшей средней температурй. При равенстве — первый по алфавиту."""
+
     sums = {}
     counts = {}
     for record in records:
