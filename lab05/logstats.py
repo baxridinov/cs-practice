@@ -1,5 +1,4 @@
 def parse_event(line: str) -> dict:
-    """Строка журнала -> {"time", "level", "message"} или ValueError."""
     parts = line.strip().split(maxsplit=2)
     if len(parts) < 3:
         raise ValueError("недостаточно частей в строке")
@@ -10,7 +9,7 @@ def parse_event(line: str) -> dict:
 
 
 def count_levels(lines) -> dict:
-    """Сколько строк каждого уровня; негодные -> BROKEN. Пустые пропускаем."""
+    
     counts = {}
     for line in lines:
         if not line.strip():
@@ -26,7 +25,7 @@ def count_levels(lines) -> dict:
 
 
 def top_errors(lines, n: int) -> list:
-    """n самых частых сообщений ERROR: [сообщение, сколько раз], при равенстве — по алфавиту."""
+    
     freq = {}
     for line in lines:
         if not line.strip():
@@ -43,8 +42,6 @@ def top_errors(lines, n: int) -> list:
 
 
 def format_report(counts: dict, errors: list) -> str:
-    """Текст отчёта по готовым подсчётам. Уровни — по алфавиту, в конце перевод строки."""
-    out = ["Отчёт по журналу", ""]
     for level in sorted(counts):
         out.append(f"{level}: {counts[level]}")
     out.append("")
