@@ -2,7 +2,6 @@ import json
 
 
 def _to_scalar(value: str):
-    """Приводит значение из учебного YAML к типу."""
     value = value.strip()
     low = value.lower()
 
@@ -23,7 +22,6 @@ def _to_scalar(value: str):
 
 
 def csv_to_records(text: str) -> list[dict]:
-    """CSV с заголовком -> список словарей. Значения остаются строками."""
     if not text or not text.strip():
         return []
 
@@ -44,7 +42,7 @@ def csv_to_records(text: str) -> list[dict]:
 
 
 def parse_settings(lines: list[str]) -> dict:
-    """Простой YAML -> словарь."""
+
     result = {}
     current_list_key = None
 
@@ -77,7 +75,6 @@ def parse_settings(lines: list[str]) -> dict:
 
 
 def merge_by_key(rows: list[dict], extra: dict, key: str = "id") -> list[dict]:
-    """Дополняет записи сведениями из справочника по ключу key."""
     merged_rows = []
 
     for row in rows:
@@ -97,7 +94,6 @@ def merge_by_key(rows: list[dict], extra: dict, key: str = "id") -> list[dict]:
 
 
 def records_to_json(records: list[dict]) -> str:
-    """Список словарей -> JSON: отступ 2, ключи по алфавиту, кириллица как есть."""
     return json.dumps(
         records,
         ensure_ascii=False,
