@@ -1,15 +1,12 @@
 import numpy as np
 
 print("--- Задание 1. Создание векторов и матриц ---")
-# hours — числа от 0 до 21 с шагом 3
+
+
 hours = np.arange(0, 22, 3)
-# line — пять равноудалённых чисел от 0 до 1 включительно
 line = np.linspace(0, 1, 5)
-# zeros — вектор из шести нулей целого типа
 zeros = np.zeros(6, dtype=int)
-# unknown_table — матрица формы (2, 3), полностью заполненная числом -1
 unknown_table = np.full((2, 3), -1)
-# identity — единичная матрица размера 3×3
 identity = np.eye(3)
 
 print("hours:", hours)
@@ -44,7 +41,7 @@ print("Строки 1–3 и столбцы 2–4:\n", matrix[1:4, 2:5], "\nshap
 print("Угловой блок 2x2 в правом нижнем углу:\n", matrix[-2:, -2:], "\nshape:", matrix[-2:, -2:].shape)
 
 print("\n--- Задание 5. Изменение массива с помощью срезов ---")
-# Примеры из условия
+
 vector = np.array([10, 20, 30, 40, 50])
 vector[1:4] = 0
 small_matrix = np.arange(1, 10).reshape(3, 3)
@@ -53,13 +50,11 @@ small_matrix[1:, 1:] = 9
 
 changed_hours = hours.copy()
 changed_hours[2:5] = 99
-# Заменяем каждый второй элемент, начиная с первого (индексы 0, 2, 4...)
+
 changed_hours[0::2] = -1
 print("changed_hours:", changed_hours)
 print("исходный hours:", hours)
-# Комментарий: .copy() нужна, чтобы создавать независимую копию массива. 
-# Без .copy() переменная changed_hours была бы ссылкой на те же данные, что и hours,
-# и любые изменения в changed_hours испортили бы исходный массив hours.
+
 
 changed_matrix = matrix.copy()
 changed_matrix[1, :] = 0        # Вторая строка на нули
@@ -75,6 +70,4 @@ transposed = table.T
 print("Форма numbers:", numbers.shape)
 print("Форма table:", table.shape)
 print("Форма transposed:", transposed.shape)
-# Комментарий: reshape(3, 4) работает, потому что 3 * 4 = 12 (совпадает с количеством элементов).
-# reshape(5, 3) вызовет ошибку, так как 5 * 3 = 15, а элементов в массиве всего 12.
-# Работа завершена
+
